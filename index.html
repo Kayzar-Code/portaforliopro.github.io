@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>PORTAFOLIO PROFESIONAL</title>
+</head>
+<body>
+    <header>
+        <a href="" class="logo">
+            <img src="./images/logo.png" alt="">
+        </a>
+        <nav>
+            <a href="" class="active">HOME</a>
+            <a href="#" id="projectButton">PROYECTS</a>
+        </nav>
+    </header>
+    <section>
+        <div class="side">
+            <div class="socialicon">
+                <ion-icon name="logo-facebook"></ion-icon>
+                <ion-icon name="logo-instagram"></ion-icon>
+                <ion-icon name="logo-tiktok"></ion-icon>
+                <ion-icon name="logo-twitter"></ion-icon>
+            </div>
+        </div>
+        <div class="content">
+            <h1>Jesús Joan Pérez Loya</h1>
+            <div class="buttonholder">
+                <button>...</button>
+                <button>...</button>
+            </div>
+            <div id="projectContent">
+                <p>=== INICIO DE REGISTRO ===</p>
+                <p>Ocupación: Estudiante apasionado de Ingeniería en Sistemas Computacionales</p>
+                <p>>>> INICIANDO DESCRIPCIÓN >>></p>
+                <br>
+                <p>Saludos,</p>
+                <br>
+                <p>Me presento como un ferviente aprendiz de la Ingeniería en Sistemas Computacionales: ¡Jesús Joan Pérez Loya es mi nombre!</p>
+                <p>Navegando por las corrientes tecnológicas, he conquistado los secretos de múltiples lenguajes de programación: C++, Python, </p>
+                <p>Java y otras criaturas cibernéticas. En este viaje académico, he tejido las telarañas de las páginas web y he dado vida a </p>
+                <p>las entidades conocidas como bases de datos.</p>
+                <br>
+                <p>Las proezas que he alcanzado en estos dominios académicos son vastas y diversas.</p>
+                <br>
+                <p>>>> INICIANDO OBJETIVO >>></p>
+                <p>Mis hazañas han quedado grabadas en un portafolio de evidencias. Con estos tesoros digitales en mi poder, mi misión es </p>
+                <p>clara: forjar un sitio web para albergar no solo mi presentación personal, sino también el proceso realizado. Cada hazaña </p>
+                <p>contará con su relato, y cada relato revelará los secretos de su funcionamiento, desvelando los misterios detrás de cada </p>
+                <p>actividad. Acompañaré estos relatos con imágenes que ilustrarán mis logros de manera gráfica.</p>
+                <br>
+                <p>Este sitio web se convertirá en la crónica de mi travesía, la expresión virtual de mi pasión por la ingeniería y la computación.</p>
+                <br>
+                <p>>>> REGISTRO COMPLETADO >>></p>
+            </div>
+            
+            <!-- Sección de "Teoría del Color" inicialmente oculta -->
+            <div id="color-theory" style="display: none;">
+                <body>
+                    <div class="color-map">
+                        <div id="color-picker">
+                            <input type="color" id="color-input">
+                            <div id="color-info">
+                                <p>Valor Hexadecimal: <span id="hex-value">#000000</span></p>
+                                <p>R: <span id="red-value">0</span></p>
+                                <p>G: <span id="green-value">0</span></p>
+                                <p>B: <span id="blue-value">0</span></p>
+                            </div>
+                        </div>
+                        <div id="color-combinations">
+                            <h2>Combinaciones de Color</h2>
+                            <div id="monochromatic"></div>
+                            <div id="complementary"></div>
+                            <div id="split-complementary"></div>
+                            <div id="analogous"></div>
+                        </div>
+                        <div id="color-circle">
+                            <div id="color-combinations-circle">
+                                <div class="color-segment" id="monochromatic-circle">
+                                    <p>Monocromático</p>
+                                </div>
+                                <div class="color-segment" id="complementary-circle">
+                                    <p>Complementario</p>
+                                </div>
+                                <div class="color-segment" id="split-complementary-circle">
+                                    <p>Complementarios divididos</p>
+                                </div>
+                                <div class="color-segment" id="analogous-circle">
+                                    <p>Análogos</p>
+                                </div>
+                            </div>
+                          </div>
+                          
+                    </div>
+                    <script src="script.js"></script>
+                </body>
+                <!-- Agrega tu contenido de "Teoría del Color" aquí -->
+                <h2>Teoría del Color</h2>
+                <p>Contenido de la teoría del color...</p>
+            </div>
+        </div>
+    </section>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        const projectButton = document.getElementById('projectButton');
+        const projectContent = document.getElementById('projectContent');
+        const colorTheory = document.getElementById('color-theory');
+
+        projectButton.addEventListener('click', () => {
+            if (projectContent.style.display === 'none') {
+                // Mostrar el contenido original
+                projectContent.style.display = 'block';
+
+                // Ocultar la sección de "Teoría del Color"
+                colorTheory.style.display = 'none';
+            } else {
+                // Ocultar el contenido original
+                projectContent.style.display = 'none';
+
+                // Mostrar la sección de "Teoría del Color"
+                colorTheory.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

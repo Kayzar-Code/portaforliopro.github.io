@@ -1,0 +1,145 @@
+/* Reset CSS básico */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* Estilos generales */
+body {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Montserrat', sans-serif;
+  background: #171115;
+  color: #fff;
+}
+
+/* Efecto de fondo */
+body::before,
+body::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  width: 15rem;
+  aspect-ratio: 1/1;
+  filter: blur(50px);
+  background: #650859;
+}
+
+/* Estilos del encabezado */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding-top: 1rem;
+  padding-inline: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
+}
+
+header img {
+  width: 5rem;
+}
+
+header nav {
+  display: flex;
+  gap: .5rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header nav a {
+  text-decoration: none;
+  color: inherit;
+  font-size: .9rem;
+  text-transform: capitalize;
+  border-radius: 100vw;
+  padding: .5rem 1rem;
+  transition: .3s ease;
+}
+
+header nav a:hover,
+.active {
+  background: #7522a2;
+}
+
+/* Estilos de la sección principal */
+section {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+}
+
+section .content {
+  padding-left: 10%;
+}
+
+section .content h1 {
+  font-size: 5rem;
+  text-transform: uppercase;
+  position: relative;
+}
+
+section .content h1:before,
+section .content h1::after {
+  content: '';
+  position: absolute;
+  background: url('./images/rounded-star.png') center center / cover;
+  width: 3rem;
+  aspect-ratio: 1/1;
+  top: -2rem;
+}
+
+section .content h1::after {
+  top: unset;
+  bottom: -2rem;
+}
+
+.buttonholder {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.buttonholder button {
+  background: transparent;
+  color: #fff;
+  border-radius: 100vw;
+  border: 2px solid #7522a2;
+  padding: .5rem 1.5rem;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+.buttonholder button:hover {
+  background: #7522a2;
+}
+
+section .content p {
+  font-size: .8rem;
+  width: 70%;
+}
+
+/* Estilos para .socialicon ion-icon */
+.socialicon ion-icon {
+  background: #fff;
+  color: #650859;
+  padding: .3rem;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+.socialicon ion-icon:hover {
+  background: #650859;
+  color: #fff;
+}
