@@ -1,148 +1,220 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>PORTAFOLIO PROFESIONAL</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="estilo.css">
+    <title>LP Desarrollador Web</title>
 </head>
+
 <body>
-    <header>
-        <a href="" class="logo">
-            <img src="./images/logo.png" alt="">
-        </a>
-        <nav>
-            <a href="" class="active">HOME</a>
-            <a href="#" id="projectButton">PROYECTS</a>
-        </nav>
-    </header>
-    <section>
-        <div class="side">
-            <div class="socialicon">
-                <ion-icon name="logo-facebook"></ion-icon>
-                <ion-icon name="logo-instagram"></ion-icon>
-                <ion-icon name="logo-tiktok"></ion-icon>
-                <ion-icon name="logo-twitter"></ion-icon>
-            </div>
-        </div>
-        <div class="content">
-            <h1>Jesús Joan Pérez Loya</h1>
-            <div class="buttonholder">
-                <button>...</button>
-                <button>...</button>
-            </div>
-            <div id="projectContent">
-                <p>=== INICIO DE REGISTRO ===</p>
-                <p>Ocupación: Estudiante apasionado de Ingeniería en Sistemas Computacionales</p>
-                <p>>>> INICIANDO DESCRIPCIÓN >>></p>
-                <br>
-                <p>Saludos,</p>
-                <br>
-                <p>Me presento como un ferviente aprendiz de la Ingeniería en Sistemas Computacionales: ¡Jesús Joan Pérez Loya es mi nombre!</p>
-                <p>Navegando por las corrientes tecnológicas, he conquistado los secretos de múltiples lenguajes de programación: C++, Python, </p>
-                <p>Java y otras criaturas cibernéticas. En este viaje académico, he tejido las telarañas de las páginas web y he dado vida a </p>
-                <p>las entidades conocidas como bases de datos.</p>
-                <br>
-                <p>Las proezas que he alcanzado en estos dominios académicos son vastas y diversas.</p>
-                <br>
-                <p>>>> INICIANDO OBJETIVO >>></p>
-                <p>Mis hazañas han quedado grabadas en un portafolio de evidencias. Con estos tesoros digitales en mi poder, mi misión es </p>
-                <p>clara: forjar un sitio web para albergar no solo mi presentación personal, sino también el proceso realizado. Cada hazaña </p>
-                <p>contará con su relato, y cada relato revelará los secretos de su funcionamiento, desvelando los misterios detrás de cada </p>
-                <p>actividad. Acompañaré estos relatos con imágenes que ilustrarán mis logros de manera gráfica.</p>
-                <br>
-                <p>Este sitio web se convertirá en la crónica de mi travesía, la expresión virtual de mi pasión por la ingeniería y la computación.</p>
-                <br>
-                <p>>>> REGISTRO COMPLETADO >>></p>
-            </div>
-            
-            <!-- Sección de "Teoría del Color" inicialmente oculta -->
-            <div id="color-theory" style="max-height: 80vh; overflow-y: auto;">
-                <body>
-                    <div class="color-map">
-                        <div id="color-picker">
-                            <input type="color" id="color-input">
-                            <div id="color-info">
-                                <p>Valor Hexadecimal: <span id="hex-value">#000000</span></p>
-                                <p>R: <span id="red-value">0</span></p>
-                                <p>G: <span id="green-value">0</span></p>
-                                <p>B: <span id="blue-value">0</span></p>
-                            </div>
-                        </div>
-                        <div id="color-combinations">
-                            <h2>Combinaciones de Color</h2>
-                            <div id="monochromatic"></div>
-                            <div id="complementary"></div>
-                            <div id="split-complementary"></div>
-                            <div id="analogous"></div>
-                        </div>
-                        <div id="color-circle">
-                            <div id="color-combinations-circle">
-                                <div class="color-segment" id="monochromatic-circle">
-                                    <p>Monocromático</p>
-                                </div>
-                                <div class="color-segment" id="complementary-circle">
-                                    <p>Complementario</p>
-                                </div>
-                                <div class="color-segment" id="split-complementary-circle">
-                                    <p>Complementarios divididos</p>
-                                </div>
-                                <div class="color-segment" id="analogous-circle">
-                                    <p>Análogos</p>
-                                </div>
-                            </div>
-                          </div>
-                          
+    <!-- SECCION I N I C I O -->
+    <section id="inicio">
+        <div class="contenido">
+            <header>
+                <div class="contenido-header">
+                    <h1>/JJPL/</h1>
+                    <nav id="nav" class="">
+                        <ul id="links">
+                            <li><a href="#inicio" class="seleccionado" onclick="seleccionar(this)">INICIO</a></li>
+                            <li><a href="#sobremi" onclick="seleccionar(this)">SOBRE MI</a></li>
+                            <li><a href="#portfolio" onclick="seleccionar(this)">PORTAFOLIO</a></li>
+
+                        </ul>
+                    </nav>
+
+                    <!-- Icono del menu responsive -->
+                    <div id="icono-nav" onclick="responsiveMenu()">
+                        <i class="fa-solid fa-bars"></i>
                     </div>
-                    <script src="script.js"></script>
-                </body>
-                <!-- Agrega tu contenido de "Teoría del Color" aquí -->
-                <h2>Teoría del Color</h2>
-                <p>Contenido de la teoría del color...</p>
-                <h2>Explorando Grease Pencil de Blender</h2>
-                <img src="arbol.jpg" alt="Imagen del proyecto Grease Pencil 1">
-                <h2>Trazos personalizados</h2>
-                <img src="2.jpg" alt="Imagen del proyecto Trazos personalizados">
-                <h2>Herramientas de trazos con Grease Pencil</h2>
-                <img src="3.jpg" alt="Imagen del proyecto THerramientas de trazos con Grease Pencil">
-                <img src="4.jpg" alt="Imagen del proyecto THerramientas de trazos con Grease Pencil">
-                <h2>Dibujando con figuras geométricas</h2>
-                <img src="5.jpg" alt="Imagen del proyecto Dibujando con figuras geométricas">
-                <h2>La oruga</h2>
-                <img src="6.jpg" alt="Imagen del proyecto La oruga">
-                <h2>Copa de vino</h2>
-                <img src="7.jpg" alt="Imagen del proyecto Copa de vino">
-                <h2>Diseño libre de una mesa</h2>
-                <img src="8.jpg" alt="Imagen del proyecto Diseño libre de una mesa">
-                <h2>Casco vikingo</h2>
-                <img src="9.jpg" alt="Imagen del proyecto Casco vikingo">
-                <h2>Pintar vértices</h2>
-                <img src="10.jpg" alt="Imagen del proyecto Pintar vértices">
+
+
+                    <div class="redes">
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram-square"></i></a>
+                    </div>
+                </div>
+            </header>
+            <div class="presentacion">
+                <p class="bienvenida">Bienvenidos</p>
+                <h2>Soy <span>Jesús Joan Pérez Loya</span>, Ing. Sitemas Computacionales</h2>
+                <p class="descripcion">A continuación presento los proyectos que e hecho durante mi carrera: </p>
+                <a href="#portfolio">Ir a Portafolio</a>
             </div>
         </div>
     </section>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script>
-        const projectButton = document.getElementById('projectButton');
-        const projectContent = document.getElementById('projectContent');
-        const colorTheory = document.getElementById('color-theory');
 
-        projectButton.addEventListener('click', () => {
-            if (projectContent.style.display === 'none') {
-                // Mostrar el contenido original
-                projectContent.style.display = 'block';
+    <!-- SECCION S O B R E M I -->
+    <section id="sobremi">
+        <div class="contenedor-foto">
+            <img src="img/foto.jpg" alt="">
+        </div>
+        <div class="sobremi">
+            <p class="titulo-seccion">Sobre Mi</p>
+            <h2>Hola, Soy <span>Jesús Joan Pérez Loya</span> </h2>
+            <h3>Ing. Sistemas Computacionales</h3>
+            <p>
+                Me presento como un ferviente aprendiz de la Ingeniería en Sistemas Computacionales: ¡Jesús Joan Pérez Loya es mi nombre!
+                
+                Navegando por las corrientes tecnológicas, he conquistado los secretos de múltiples lenguajes de programación: C++, Python,
+                
+                Java y otras criaturas cibernéticas. En este viaje académico, he tejido las telarañas de las páginas web y he dado vida a
+                
+                las entidades conocidas como bases de datos.</p>
+        </div>
+    </section>
 
-                // Ocultar la sección de "Teoría del Color"
-                colorTheory.style.display = 'none';
-            } else {
-                // Ocultar el contenido original
-                projectContent.style.display = 'none';
+    <!-- SECCION PORTAFOLIO -->
+    <section id="portfolio">
+        <h3 class="titulo-seccion">Mis Proyectos</h3>
+        <div class="fila">
+            <div class="proyecto">
+                <div class="overlay"></div>
+                <img src="img/arbol.jpg" alt="">
+                <div class="info">
+                    <h4>Explorando Grease Pencil de Blender</h4>
+                    <p>Dibujo 2d</p>
+                </div>
+            </div>
+            <div class="proyecto">
+                <div class="overlay"></div>
+                <img src="img/arboles.jpg" alt="">
+                <div class="info">
+                    <h4>Trazos personalizados</h4>
+                    <p>Dibujo 2d</p>
+                </div>
+            </div>
+            <div class="proyecto">
+                <div class="overlay"></div>
+                <img src="img/dibujos3.jpg" alt="">
+                <div class="info">
+                    <h4>Herramientas de trazos con Grease Pencil</h4>
+                    <p>Dibujo 2d</p>
+                </div>
+            </div>
+        </div>
+        <div class="fila">
+            <div class="proyecto">
+                <div class="overlay"></div>
+                <img src="img/figura_geo.jpg" alt="">
+                <div class="info">
+                    <h4>Herramientas de trazos con Grease Pencil</h4>
+                    <p>Dibujo 2d</p>
+                </div>
+            </div>
+            <div class="proyecto">
+                <div class="overlay"></div>
+                <img src="img/dibujo_geo.jpg" alt="">
+                <div class="info">
+                    <h4>Dibujando con figuras geométricas</h4>
+                    <p>Dibujo 2d</p>
+                </div>
+            </div>
+            <div class="proyecto">
+                <div class="overlay"></div>
+                <img src="img/oruga.jpg" alt="">
+                <div class="info">
+                    <h4>La oruga</h4>
+                    <p>Dibujo 3d</p>
+                </div>
+            </div>
+        </div>
+        <div class="fila">
+            <div class="proyecto">
+                <div class="overlay"></div>
+                <img src="img/copa.jpg" alt="">
+                <div class="info">
+                    <h4>Copa de vino</h4>
+                    <p>Dibujo 3d</p>
+                </div>
+            </div>
+            <div class="proyecto">
+                <div class="overlay"></div>
+                <img src="img/mesa.jpg" alt="">
+                <div class="info">
+                    <h4>Diseño libre de mesa</h4>
+                    <p>Dibujo 3d</p>
+                </div>
+            </div>
+            <div class="proyecto">
+                <div class="overlay"></div>
+                <img src="img/casco.jpg" alt="">
+                <div class="info">
+                    <h4>Práctica 10. Casco vikingo</h4>
+                    <p>Dibujo 3d</p>
+                </div>
+            </div>
+            <div class="proyecto">
+                <div class="overlay"></div>
+                <img src="img/sombrero.jpg" alt="">
+                <div class="info">
+                    <h4>Pintar vértices</h4>
+                    <p>Dibujo 3d</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                // Mostrar la sección de "Teoría del Color"
-                colorTheory.style.display = 'block';
-            }
-        });
-    </script>
+    <!-- SECCTION C O N T A C T O -->
+    <section id="contacto">
+        <h3 class="titulo-seccion">Teoria del Color</h3>
+        <div class="color-map">
+            <div id="color-picker">
+                <input type="color" id="color-input">
+                <div id="color-info">
+                    <p>Valor Hexadecimal: <span id="hex-value">#000000</span></p>
+                    <p>R: <span id="red-value">0</span></p>
+                    <p>G: <span id="green-value">0</span></p>
+                    <p>B: <span id="blue-value">0</span></p>
+                </div>
+            </div>
+            <div id="color-combinations">
+                <h2>Combinaciones de Color</h2>
+                <div id="monochromatic"></div>
+                <div id="complementary"></div>
+                <div id="split-complementary"></div>
+                <div id="analogous"></div>
+            </div>
+            <div id="color-circle">
+                <div id="color-combinations-circle">
+                    <div class="color-segment" id="monochromatic-circle">
+                        <p>Monocromático</p>
+                    </div>
+                    <div class="color-segment" id="complementary-circle">
+                        <p>Complementario</p>
+                    </div>
+                    <div class="color-segment" id="split-complementary-circle">
+                        <p>Complementarios divididos</p>
+                    </div>
+                    <div class="color-segment" id="analogous-circle">
+                        <p>Análogos</p>
+                    </div>
+                </div>
+              </div>
+              
+        </div>
+        <script src="script.js"></script>
+    </body>
+
+    </section>
+
+    <!-- SECCION FOOTER -->
+    <footer>
+        <p>KAYZAR INCORPORATION</p>
+        <div class="redes">
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram-square"></i></a>
+        </div>
+
+    </footer>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
