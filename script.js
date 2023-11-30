@@ -47,66 +47,148 @@ const blueValue = document.getElementById('blue-value');
 
 colorInput.addEventListener('input', updateColor);
 
-function updateColor() {
-    const selectedColor = colorInput.value;
-    hexValue.textContent = selectedColor;
-    const rgbValues = hexToRgb(selectedColor);
-    redValue.textContent = rgbValues.r;
-    greenValue.textContent = rgbValues.g;
-    blueValue.textContent = rgbValues.b;
-
-    displayColorCombinations(rgbValues);
-}
-
-function hexToRgb(hex) {
-    const r = parseInt(hex.slice(1, 3), 16);
-    const g = parseInt(hex.slice(3, 5), 16);
-    const b = parseInt(hex.slice(5, 7), 16);
-    return { r, g, b };
-}
-
-function displayColorCombinations(rgbValues) {
-    const { r, g, b } = rgbValues;
-
-    // Monocromáticos
-    const monoColors = [
-        `rgb(${r}, ${g}, ${b})`,
-        `rgb(${Math.floor(r * 0.8)}, ${Math.floor(g * 0.8)}, ${Math.floor(b * 0.8)})`,
-        `rgb(${Math.floor(r * 0.6)}, ${Math.floor(g * 0.6)}, ${Math.floor(b * 0.6)})`
-    ];
-
-    const monochromaticDiv = document.getElementById('monochromatic-circle');
-    monochromaticDiv.style.backgroundColor = monoColors[0];
-    monochromaticDiv.querySelector('p').textContent = 'Monocromático';
-
-    // Complementario
-    const complementaryColor = `rgb(${255 - r}, ${255 - g}, ${255 - b})`;
-    const complementaryDiv = document.getElementById('complementary-circle');
-    complementaryDiv.style.backgroundColor = complementaryColor;
-    complementaryDiv.querySelector('p').textContent = 'Complementario';
-
-    // Complementarios divididos
-    const splitComplementaryColors = [
-        complementaryColor,
-        `rgb(${Math.floor(r * 0.8)}, ${Math.floor(g * 0.8)}, ${Math.floor(b * 0.8)})`,
-        `rgb(${Math.floor(r * 0.6)}, ${Math.floor(g * 0.6)}, ${Math.floor(b * 0.6)})`
-    ];
-
-    const splitComplementaryDiv = document.getElementById('split-complementary-circle');
-    splitComplementaryDiv.style.backgroundColor = splitComplementaryColors[0];
-    splitComplementaryDiv.querySelector('p').textContent = 'Complementarios divididos';
-
-    // Análogos
-    const analogousColors = [
-        `rgb(${r}, ${g}, ${b})`,
-        `rgb(${r}, ${Math.floor(g * 0.8)}, ${Math.floor(b * 0.8)})`,
-        `rgb(${r}, ${Math.floor(g * 0.6)}, ${Math.floor(b * 0.6)})`
-    ];
-
-    const analogousDiv = document.getElementById('analogous-circle');
-    analogousDiv.style.backgroundColor = analogousColors[0];
-    analogousDiv.querySelector('p').textContent = 'Análogos';
-}
-
-// Llamada inicial para mostrar los valores predeterminados
-updateColor();
+            function updateColor() {
+              const colorInput = document.getElementById('color');
+              const colorPreview = document.getElementById('color-preview');
+              const hexDisplay = document.getElementById('hex');
+              const rgbDisplay = document.getElementById('rgb');
+              const colorVersions = document.getElementById('color-versions');
+        
+              const selectedColor = colorInput.value;
+              colorPreview.style.backgroundColor = selectedColor;
+        
+              const hexValue = selectedColor.toUpperCase();
+              hexDisplay.textContent = hexValue;
+        
+              const rgbValue = hexToRgb(selectedColor);
+              rgbDisplay.textContent = `(${rgbValue.r}, ${rgbValue.g}, ${rgbValue.b})`;
+        
+              showColorVersions(selectedColor);
+            }
+        
+            function hexToRgb(hex) {
+              // Elimina el '#' si está presente
+              hex = hex.replace(/^#/, '');
+        
+              // Parsea el valor hexadecimal
+              const bigint = parseInt(hex, 16);
+        
+              // Extrae los componentes RGB
+              const r = (bigint >> 16) & 255;
+              const g = (bigint >> 8) & 255;
+              const b = bigint & 255;
+        
+              return { r, g, b };
+            }
+        
+            function showColorVersions(color) {
+              const colorVersions = document.getElementById('color-versions');
+              colorVersions.innerHTML = '';
+        
+              const monochromaticColors = generateMonochromaticColors(color);
+              displayColorGroup('Monocromático', monochromaticColors);
+        
+              const complementaryColor = generateComplementaryColor(color);
+              displayColorGroup('Complementario', [complementaryColor]);
+        
+              const splitComplementaryColors = generateSplitComplementaryColors(color);
+              displayColorGroup('Complementarios Divididos', splitComplementaryColors);
+        
+              const analogousColors = generateAnalogousColors(color);
+              displayColorGroup('Análogos', analogousColors);
+            }
+        
+            function generateMonochromaticColors(color) {
+              const baseColor = hexToRgb(color);
+              const step = 30;
+        
+              const variations = [];
+        
+              for (let i = 0; i < 5; i++) {
+                const newColor = {
+                  r: Math.min(baseColor.r + i * step, 255),
+                  g: Math.min(baseColor.g + i * step, 255),
+                  b: Math.min(baseColor.b + i * step, 255),
+                };
+        
+                variations.push(rgbToHex(newColor.r, newColor.g, newColor.b));
+              }
+        
+              return variations;
+            }
+        
+            function generateComplementaryColor(color) {
+              const baseColor = hexToRgb(color);
+        
+              const complementaryColor = {
+                r: 255 - baseColor.r,
+                g: 255 - baseColor.g,
+                b: 255 - baseColor.b,
+              };
+        
+              return rgbToHex(complementaryColor.r, complementaryColor.g, complementaryColor.b);
+            }
+        
+            function generateSplitComplementaryColors(color) {
+              const baseColor = hexToRgb(color);
+              const step = 30;
+        
+              const variations = [];
+        
+              for (let i = 1; i <= 2; i++) {
+                const newColor = {
+                  r: Math.min(baseColor.r + i * step, 255),
+                  g: Math.min(baseColor.g + i * step, 255),
+                  b: Math.min(baseColor.b + i * step, 255),
+                };
+        
+                variations.push(rgbToHex(newColor.r, newColor.g, newColor.b));
+              }
+        
+              return variations;
+            }
+        
+            function generateAnalogousColors(color) {
+              const baseColor = hexToRgb(color);
+              const step = 30;
+        
+              const variations = [];
+        
+              for (let i = -1; i <= 1; i++) {
+                if (i !== 0) {
+                  const newColor = {
+                    r: Math.min(Math.max(baseColor.r + i * step, 0), 255),
+                    g: Math.min(Math.max(baseColor.g + i * step, 0), 255),
+                    b: Math.min(Math.max(baseColor.b + i * step, 0), 255),
+                  };
+        
+                  variations.push(rgbToHex(newColor.r, newColor.g, newColor.b));
+                }
+              }
+        
+              return variations;
+            }
+        
+            function rgbToHex(r, g, b) {
+              return '#' + componentToHex(r) + componentToHex(g) + componentToHex(b);
+            }
+        
+            function componentToHex(c) {
+              const hex = c.toString(16);
+              return hex.length === 1 ? '0' + hex : hex;
+            }
+        
+            function displayColorGroup(groupName, colors) {
+              const colorVersions = document.getElementById('color-versions');
+              const groupTitle = document.createElement('h4');
+              groupTitle.textContent = groupName;
+              colorVersions.appendChild(groupTitle);
+        
+              colors.forEach(c => {
+                const colorBox = document.createElement('div');
+                colorBox.style.backgroundColor = c;
+                colorBox.className = 'color-box';
+                colorVersions.appendChild(colorBox);
+              });
+            }
+          
